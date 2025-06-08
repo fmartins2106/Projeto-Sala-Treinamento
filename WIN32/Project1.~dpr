@@ -1,0 +1,18 @@
+program Project1;
+
+uses
+  Forms,
+  uDataModulo in '..\uDataModulo.pas' {dm_Treinamento_dataModulo: TDataModule},
+  ufrPrincipal in '..\ufrPrincipal.pas' {Form1},
+  ufrSimples in '..\ufrSimples.pas' {frSimples},
+  ufrCadastroPadrao in '..\ufrCadastroPadrao.pas' {frCadastroPadrao},
+  ufrCadastroPessoa in '..\ufrCadastroPessoa.pas' {frCadastroPessoa};
+
+{$R *.res}
+
+begin
+  Application.Initialize;
+  Application.CreateForm(TForm1, Form1);
+  Application.CreateForm(Tdm_Treinamento_dataModulo, dm_Treinamento_dataModulo);
+  Application.Run;
+end.
