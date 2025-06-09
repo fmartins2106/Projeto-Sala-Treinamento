@@ -33,7 +33,7 @@ var
 
 implementation
 
-uses uDataModulo;
+uses uDataModulo, ufrConsultaPessoa;
 
 {$R *.dfm}
 
@@ -50,7 +50,7 @@ end;
 
 function TfrCadastroPessoa.Consultar: TForm;
 begin
-  // fazer posteriormente - Result := TuConsultaPadraoPessoa.Create(Edit_ID_Pessoa);
+  Result := TfrConsultaPessoa.Create(Edit_ID_Pessoa);
 end;
 
 procedure TfrCadastroPessoa.Salvar;

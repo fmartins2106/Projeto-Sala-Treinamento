@@ -1,0 +1,100 @@
+unit ufrCadastroEmpresa;
+
+interface
+
+uses
+  Windows, Messages, SysUtils, Variants, Classes, Graphics, Controls, Forms,
+  Dialogs, ufrCadastroPadrao, ImgList, ComCtrls, ToolWin, Mask, StdCtrls;
+
+type
+  TfrCadastroEmpresa = class(TfrCadastroPadrao)
+    Ed_ID_Empresa: TEdit;
+    Ed_Nome_Empresa: TEdit;
+    Ed_Rua: TEdit;
+    Ed_Bairro: TEdit;
+    Ed_Logradouro: TEdit;
+    Ed_Nome_Cidade: TEdit;
+    Ed_UF_Estado: TEdit;
+    IDPessoa: TLabel;
+    CNPJ: TLabel;
+    Label3: TLabel;
+    Ed_CNPJ: TMaskEdit;
+    CEP: TLabel;
+    Ed_CEP: TMaskEdit;
+    Rua: TLabel;
+    Bairro: TLabel;
+    NomeCidade: TLabel;
+    Logradouro: TLabel;
+    Label1: TLabel;
+  private
+    { Private declarations }
+  public
+    { Public declarations }
+    Function setTabela: TClientDataSet; override; // Retorna o dataset da tabela de pessoas
+    Function setIndice: String; override; // Retorna o campo usado como índice (chave primária)
+    Function setEdit_id: TEdit; override; // Retorna o TEdit correspondente ao campo de ID
+    Procedure Salvar; override;  // Preenche os campos do dataset com os dados dos edits
+    Function Consultar: TForm; override; // Retorna o form de consulta relacionado a pessoa
+    Procedure Carregar; override;  // Preenche os campos da tela com os dados do dataset
+  end;
+
+var
+  frCadastroEmpresa: TfrCadastroEmpresa;
+
+implementation
+
+uses uDataModulo;
+
+{$R *.dfm}
+
+{ TfrCadastroEmpresa }
+
+procedure TfrCadastroEmpresa.Carregar;
+begin
+  inherited;
+  Ed_ID_Empresa.Text := tabela.FieldByName('BDIDEMPRESA').AsString;
+  Ed_Nome_Empresa.Text := tabela.FieldByName('BDNOMEEPRESA').AsString;
+  Ed_CNPJ.Text := tabela.FieldByName('BDIDCNPJ').AsString;
+  Ed_CEP.Text := tabela.FieldByName('BDCEP').AsString;
+  Ed_Logradouro.Text := tabela.FieldByName('BDLOGRADOURO').AsString;
+  Ed_Rua.Text := tabela.FieldByName('BDRUA').AsString;
+  Ed_Bairro.Text := tabela.FieldByName('BDBAIRRO').AsString;
+  Ed_Nome_Cidade.Text := tabela.FieldByName('BDCIDADE').AsString;
+  Ed_UF_Estado.Text := tabela.FieldByName('BDUFESTADO').AsString;
+end;
+
+function TfrCadastroEmpresa.Consultar: TForm;
+begin
+   // FAZER POSTERIORMENTE.
+end;
+
+procedure TfrCadastroEmpresa.Salvar;
+begin
+  inherited;
+  Tabela.FieldByName('BDIDEMPRESA').AsInteger := StrToIntDef(Ed_ID_Empresa.Text,0);
+  Tabela.FieldByName('BDNOMEEPRESA').AsString := Ed_Nome_Empresa.Text;
+  Tabela.FieldByName('BDIDCNPJ').AsString :=Ed_CNPJ.Text;
+  Tabela.FieldByName('BDCEP').AsString := Ed_CEP.Text;
+  Tabela.FieldByName('BDLOGRADOURO').AsString := Ed_Logradouro.Text;
+  Tabela.FieldByName('BDRUA').AsString := Ed_Rua.Text;
+  Tabela.FieldByName('BDBAIRRO').AsString := Ed_Bairro.Text;
+  Tabela.FieldByName('BDCIDADE').AsString := Ed_Nome_Cidade.Text;
+  Tabela.FieldByName('BDUFESTADO').AsString := Ed_UF_Estado.Text;
+end;
+
+function TfrCadastroEmpresa.setEdit_id: TEdit;
+begin
+  Result := Ed_ID_Empresa;
+end;
+
+function TfrCadastroEmpresa.setIndice: String;
+begin
+   Result := 'BDIDEMPRESA'
+end;
+
+function TfrCadastroEmpresa.setTabela: TClientDataSet;
+begin
+  Result := dm_Treinamento_dataModulo.CDS_EMPRESA;
+end;
+
+end.

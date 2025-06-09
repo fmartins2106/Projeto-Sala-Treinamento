@@ -1,0 +1,105 @@
+unit ufrCadastroTreinamento;
+
+interface
+
+uses
+  Windows, Messages, SysUtils, Variants, Classes, Graphics, Controls, Forms,
+  Dialogs, ufrCadastroPadrao, ImgList, ComCtrls, ToolWin, StdCtrls,db,dbclient;
+
+type
+  TfrCadastroTreinamento = class(TfrCadastroPadrao)
+    edit: TLabel;
+    IDtreinamento: TLabel;
+    Ed_ID_Treinamento: TEdit;
+    Ed_ID_Pessoa: TEdit;
+    Rua: TLabel;
+    Label3: TLabel;
+    Ed_Nome_Treinamento: TEdit;
+    Ed_ID_Sala: TEdit;
+    CEP: TLabel;
+    CNPJ: TLabel;
+    NomeCidade: TLabel;
+    CB_Etapa_Treinamento: TComboBox;
+    DTP_Inicio_Treinamento: TDateTimePicker;
+    Label2: TLabel;
+    DTP_Final_Treinamento: TDateTimePicker;
+    Ed_Nome_Sala_Cafe: TEdit;
+  private
+    { Private declarations }
+  public
+    { Public declarations }
+    Function setTabela: TClientDataSet; override; // Retorna o dataset da tabela de pessoas
+    Function setIndice: String; override; // Retorna o campo usado como índice (chave primária)
+    Function setEdit_id: TEdit; override; // Retorna o TEdit correspondente ao campo de ID
+    Procedure Salvar; override;  // Preenche os campos do dataset com os dados dos edits
+    Function Consultar: TForm; override; // Retorna o form de consulta relacionado a pessoa
+    Procedure Carregar; override;  // Preenche os campos da tela com os dados do dataset
+  end;
+
+var
+  frCadastroTreinamento: TfrCadastroTreinamento;
+
+implementation
+
+uses uDataModulo;
+
+{$R *.dfm}
+
+{ TfrCadastroTreinamento }
+
+procedure TfrCadastroTreinamento.Carregar;
+var etapa: Integer;
+begin
+  inherited;
+  Ed_ID_Treinamento.Text := Tabela.FieldByName('BDIDTREINAMENTO').AsString;
+  Ed_Nome_Treinamento.Text := tabela.FieldByName('BDNOMETREINAMENTO').AsString;
+  CB_Etapa_Treinamento.Items.AddObject('Etapa 1', TObject(1));
+  CB_Etapa_Treinamento.Items.AddObject('Etapa 2', TObject(2));
+  CB_Etapa_Treinamento.Text := Tabela.FieldByName('BDETAPA').AsString;
+  etapa := StrToIntDef(Tabela.FieldByName('BDETAPA').AsString, 0);
+  if etapa in [1, 2] then
+    CB_Etapa_Treinamento.ItemIndex := etapa - 1
+  else
+    CB_Etapa_Treinamento.ItemIndex := -1;
+    Ed_ID_Sala.Text := Tabela.FieldByName('BDIDPESSOA').AsString;
+    Ed_ID_Pessoa.Text := Tabela.FieldByName('BDIDPESSOA').AsString;
+    DTP_Inicio_Treinamento.datetime := Tabela.FieldByName('BDDATAINICIO').AsDateTime;
+    DTP_Final_Treinamento.datetime := Tabela.FieldByName('BDDATAFIM').AsDateTime;
+    Ed_Nome_Sala_Cafe.Text := tabela.FieldByName('BDIDSALA').AsString;
+end;
+
+function TfrCadastroTreinamento.Consultar: TForm;
+begin
+  ShowMessage('Consulta ainda não implementada.');
+  Result := nil;
+end;
+
+procedure TfrCadastroTreinamento.Salvar;
+begin
+  inherited;
+   Tabela.FieldByName('BDIDTREINAMENTO').AsInteger := StrToIntDef(Ed_ID_Treinamento.Text,0);
+   Tabela.FieldByName('BDNOMETREINAMENTO').AsString :=Ed_Nome_Treinamento.Text;
+   Tabela.FieldByName('BDETAPA').AsInteger := Integer(CB_Etapa_Treinamento.Items.Objects[CB_Etapa_Treinamento.ItemIndex]);
+   Tabela.FieldByName('BDSALACAFE').AsString :=Ed_Nome_Sala_Cafe.Text;
+   Tabela.FieldByName('BDIDPESSOA').AsInteger := StrToIntDef(Ed_ID_Sala.Text,0);
+   Tabela.FieldByName('BDDATAINICIO').AsDateTime := DTP_Inicio_Treinamento.datetime;
+   Tabela.FieldByName('BDDATAFIM').AsDateTime := DTP_Final_Treinamento.datetime;
+   Tabela.FieldByName('BDIDSALA').AsInteger := StrToIntDef(Ed_ID_Sala.Text,0);
+end;
+
+function TfrCadastroTreinamento.setEdit_id: TEdit;
+begin
+  Result := Ed_ID_Treinamento;
+end;
+
+function TfrCadastroTreinamento.setIndice: String;
+begin
+   Result := 'BDIDTREINAMENTO'
+end;
+
+function TfrCadastroTreinamento.setTabela: TClientDataSet;
+begin
+  Result := dm_Treinamento_dataModulo.CDS_TREINAMENTO;
+end;
+                                                     
+end.

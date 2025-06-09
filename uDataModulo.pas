@@ -20,7 +20,7 @@ type
     CDS_SALA: TClientDataSet;
     CDS_EMPRESA: TClientDataSet;
     CDS_TREINAMENTO: TClientDataSet;
-    DPS_EMPRESA: TDataSetProvider;
+    DSP_T_EMPRESA: TDataSetProvider;
     procedure DataModuleCreate(Sender: TObject);
   private
     { Private declarations }
@@ -66,17 +66,17 @@ begin
     ShowMessage('Conexão com o banco de dados realizada com sucesso!');
 
     // LIGAÇÕES QUE FALTAVAM
-    DSP_T_PESSOA.DataSet := T_PESSOA;
-    CDS_PESSOA.ProviderName := 'DSP_T_PESSOA';
+    //DSP_T_PESSOA.DataSet := T_PESSOA;
+   // CDS_PESSOA.ProviderName := 'DSP_T_PESSOA';
     // Ativando dataset (opcional, mas ajuda em testes)
-    T_PESSOA.Active := True;
-    CDS_PESSOA.Open;
+   // T_PESSOA.Active := True;
+   // CDS_PESSOA.Open;
 
     // Configuração SALA
-    DSP_T_SALA.DataSet := T_SALA;
-    CDS_SALA.ProviderName := 'DSP_T_SALA';
-    T_SALA.Active := True;
-    CDS_SALA.Open;
+   // DSP_T_SALA.DataSet := T_SALA;
+    //CDS_SALA.ProviderName := 'DSP_T_SALA';
+   // T_SALA.Active := True;
+    //CDS_SALA.Open;
 
 
   except

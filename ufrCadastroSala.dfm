@@ -1,7 +1,8 @@
 inherited frCadastroSala: TfrCadastroSala
   Left = 756
   Top = 94
-  Width = 689
+  Width = 331
+  Height = 303
   Caption = 'frCadastroSala'
   PixelsPerInch = 96
   TextHeight = 13
@@ -33,7 +34,7 @@ inherited frCadastroSala: TfrCadastroSala
     Caption = 'Lota'#231#227'o'
   end
   inherited ToolBar1: TToolBar
-    Width = 673
+    Width = 315
   end
   object Edit_id_sala: TEdit [5]
     Left = 80

@@ -1,0 +1,25 @@
+unit ufrConsultaPadrao;
+
+interface
+
+uses
+  Windows, Messages, SysUtils, Variants, Classes, Graphics, Controls, Forms,
+  Dialogs, ToolWin, ComCtrls;
+
+type
+  TfrConsultaPadrao = class(TForm)
+    ToolBar1: TToolBar;
+  private
+    { Private declarations }
+  public
+    { Public declarations }
+  end;
+
+var
+  frConsultaPadrao: TfrConsultaPadrao;
+
+implementation
+
+{$R *.dfm}
+
+end.

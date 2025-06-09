@@ -1,4 +1,6 @@
 inherited frCadastroPadrao: TfrCadastroPadrao
+  Left = 179
+  Top = 453
   Caption = 'frCadastroPadrao'
   OldCreateOrder = True
   OnCreate = FormCreate

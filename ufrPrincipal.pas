@@ -14,12 +14,13 @@ type
     Empresa1: TMenuItem;
     Pessoa1: TMenuItem;
     Sala1: TMenuItem;
-    reinamento1: TMenuItem;
+    Treinamento: TMenuItem;
     Consulta1: TMenuItem;
     ConsultaSalas1: TMenuItem;
     procedure Pessoa1Click(Sender: TObject);
     procedure Sala1Click(Sender: TObject);
-
+    procedure Empresa1Click(Sender: TObject);
+    procedure TreinamentoClick(Sender: TObject);
   private
     { Private declarations }
   public
@@ -31,7 +32,8 @@ var
 
 implementation
 
-uses ufrCadastroPessoa, uDataModulo, ufrCadastroSala;
+uses ufrCadastroPessoa, uDataModulo, ufrCadastroSala, ufrCadastroEmpresa,
+  ufrCadastroTreinamento, ufrConsultaPessoa;
 
 {$R *.dfm}
 
@@ -44,6 +46,16 @@ end;
 procedure TfrPrincipal.Sala1Click(Sender: TObject);
 begin
    TfrCadastroSala.Create(Self).Show;
+end;
+
+procedure TfrPrincipal.Empresa1Click(Sender: TObject);
+begin
+  TfrCadastroEmpresa.Create(Self).Show;
+end;
+
+procedure TfrPrincipal.TreinamentoClick(Sender: TObject);
+begin
+  TfrCadastroTreinamento.Create(Self).Show;
 end;
 
 end.

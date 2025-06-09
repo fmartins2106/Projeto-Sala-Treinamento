@@ -1,7 +1,7 @@
 object frPrincipal: TfrPrincipal
   Left = 359
   Top = 105
-  Width = 548
+  Width = 547
   Height = 540
   Caption = 'frPrincipal'
   Color = clBtnFace
@@ -19,7 +19,7 @@ object frPrincipal: TfrPrincipal
   object Panel1: TPanel
     Left = 0
     Top = 0
-    Width = 532
+    Width = 531
     Height = 481
     Align = alClient
     Color = clGray
@@ -32,6 +32,7 @@ object frPrincipal: TfrPrincipal
       Caption = 'Cadastro'
       object Empresa1: TMenuItem
         Caption = 'Empresa'
+        OnClick = Empresa1Click
       end
       object Pessoa1: TMenuItem
         Caption = 'Pessoa'
@@ -41,8 +42,9 @@ object frPrincipal: TfrPrincipal
         Caption = 'Sala'
         OnClick = Sala1Click
       end
-      object reinamento1: TMenuItem
+      object Treinamento: TMenuItem
         Caption = 'Treinamento'
+        OnClick = TreinamentoClick
       end
     end
     object Consulta1: TMenuItem

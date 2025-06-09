@@ -50,7 +50,7 @@ end;
 
 procedure TfrSimples.FormClose(Sender: TObject; var Action: TCloseAction);
 begin
-  Action := caFree; //indica que o formulário deve ser liberado da memória ao ser fechado.
+  Action := caHide; //indica que o formulário deve ser liberado da memória ao ser fechado.
 end;
 
 end.

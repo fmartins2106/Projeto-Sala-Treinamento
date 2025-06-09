@@ -1,0 +1,25 @@
+unit ufrConsultaPessoa;
+
+interface
+
+uses
+  Windows, Messages, SysUtils, Variants, Classes, Graphics, Controls, Forms,
+  Dialogs, ufrConsultaPadrao, DB, ImgList, Grids, DBGrids, ComCtrls,
+  ToolWin;
+
+type
+  TfrConsultaPessoa = class(TfrConsultaPadrao)
+  private
+    { Private declarations }
+  public
+    { Public declarations }
+  end;
+
+var
+  frConsultaPessoa: TfrConsultaPessoa;
+
+implementation
+
+{$R *.dfm}
+
+end.

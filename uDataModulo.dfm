@@ -59,6 +59,7 @@ object dm_Treinamento_dataModulo: Tdm_Treinamento_dataModulo
   object T_EMPRESA: TSQLTable
     MaxBlobSize = -1
     SQLConnection = SQLConnection_BDTreinamento
+    TableName = 'T_EMPRESA'
     Left = 296
     Top = 88
   end
@@ -100,7 +101,7 @@ object dm_Treinamento_dataModulo: Tdm_Treinamento_dataModulo
     Left = 408
     Top = 200
   end
-  object DPS_EMPRESA: TDataSetProvider
+  object DSP_T_EMPRESA: TDataSetProvider
     DataSet = T_EMPRESA
     Left = 272
     Top = 152

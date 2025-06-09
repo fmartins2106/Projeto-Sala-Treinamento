@@ -1,6 +1,6 @@
 object frSimples: TfrSimples
-  Left = 192
-  Top = 125
+  Left = 303
+  Top = 634
   Width = 1044
   Height = 540
   Caption = 'frSimples'

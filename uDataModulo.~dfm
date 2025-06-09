@@ -1,8 +1,8 @@
 object dm_Treinamento_dataModulo: Tdm_Treinamento_dataModulo
   OldCreateOrder = False
   OnCreate = DataModuleCreate
-  Left = 231
-  Top = 171
+  Left = 729
+  Top = 136
   Height = 319
   Width = 906
   object DSP_T_PESSOA: TDataSetProvider
@@ -52,6 +52,7 @@ object dm_Treinamento_dataModulo: Tdm_Treinamento_dataModulo
   object T_SALA: TSQLTable
     MaxBlobSize = -1
     SQLConnection = SQLConnection_BDTreinamento
+    TableName = 'T_SALA'
     Left = 176
     Top = 80
   end
@@ -64,6 +65,7 @@ object dm_Treinamento_dataModulo: Tdm_Treinamento_dataModulo
   object T_TREINAMENTO: TSQLTable
     MaxBlobSize = -1
     SQLConnection = SQLConnection_BDTreinamento
+    TableName = 'T_TREINAMENTO'
     Left = 408
     Top = 80
   end
@@ -72,13 +74,8 @@ object dm_Treinamento_dataModulo: Tdm_Treinamento_dataModulo
     Left = 168
     Top = 144
   end
-  object DSP_T_EMPRESA: TDataSetProvider
-    DataSet = T_PESSOA
-    Left = 288
-    Top = 144
-  end
   object DPS_T_TREINAMENTO: TDataSetProvider
-    DataSet = T_PESSOA
+    DataSet = T_TREINAMENTO
     Left = 408
     Top = 144
   end
@@ -102,5 +99,10 @@ object dm_Treinamento_dataModulo: Tdm_Treinamento_dataModulo
     ProviderName = 'DPS_T_TREINAMENTO'
     Left = 408
     Top = 200
+  end
+  object DSP_T_EMPRES: TDataSetProvider
+    DataSet = T_EMPRESA
+    Left = 272
+    Top = 152
   end
 end
