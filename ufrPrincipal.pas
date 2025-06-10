@@ -15,8 +15,6 @@ type
     Pessoa1: TMenuItem;
     Sala1: TMenuItem;
     Treinamento: TMenuItem;
-    Consulta1: TMenuItem;
-    ConsultaSalas1: TMenuItem;
     procedure Pessoa1Click(Sender: TObject);
     procedure Sala1Click(Sender: TObject);
     procedure Empresa1Click(Sender: TObject);

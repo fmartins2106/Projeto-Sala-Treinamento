@@ -4,7 +4,7 @@ interface
 
 uses
   Windows, Messages, SysUtils, Variants, Classes, Graphics, Controls, Forms,
-  Dialogs, ufrCadastroPadrao, ImgList, ComCtrls, ToolWin, Mask, StdCtrls;
+  Dialogs, ufrCadastroPadrao, ImgList, ComCtrls, ToolWin, Mask, StdCtrls,dbclient,db;
 
 type
   TfrCadastroEmpresa = class(TfrCadastroPadrao)
@@ -72,8 +72,8 @@ procedure TfrCadastroEmpresa.Salvar;
 begin
   inherited;
   Tabela.FieldByName('BDIDEMPRESA').AsInteger := StrToIntDef(Ed_ID_Empresa.Text,0);
-  Tabela.FieldByName('BDNOMEEPRESA').AsString := Ed_Nome_Empresa.Text;
-  Tabela.FieldByName('BDIDCNPJ').AsString :=Ed_CNPJ.Text;
+  Tabela.FieldByName('BDNOMEEMPRESA').AsString := Ed_Nome_Empresa.Text;
+  Tabela.FieldByName('BDIDCNPJ').AsString := Ed_CNPJ.Text;
   Tabela.FieldByName('BDCEP').AsString := Ed_CEP.Text;
   Tabela.FieldByName('BDLOGRADOURO').AsString := Ed_Logradouro.Text;
   Tabela.FieldByName('BDRUA').AsString := Ed_Rua.Text;
@@ -89,7 +89,7 @@ end;
 
 function TfrCadastroEmpresa.setIndice: String;
 begin
-   Result := 'BDIDEMPRESA'
+   Result := 'BDIDEMPRESA';
 end;
 
 function TfrCadastroEmpresa.setTabela: TClientDataSet;

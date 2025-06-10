@@ -1,0 +1,7 @@
+inherited frConsultaPadrao1: TfrConsultaPadrao1
+  Left = 354
+  Top = 215
+  Caption = 'frConsulta'
+  PixelsPerInch = 96
+  TextHeight = 13
+end

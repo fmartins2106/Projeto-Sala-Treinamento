@@ -47,11 +47,5 @@ object frPrincipal: TfrPrincipal
         OnClick = TreinamentoClick
       end
     end
-    object Consulta1: TMenuItem
-      Caption = 'Consulta'
-      object ConsultaSalas1: TMenuItem
-        Caption = 'Consulta Salas'
-      end
-    end
   end
 end

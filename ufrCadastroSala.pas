@@ -33,7 +33,7 @@ var
 
 implementation
 
-uses uDataModulo;
+uses uDataModulo, ufrConsultaSala;
 
 {$R *.dfm}
 
@@ -49,7 +49,8 @@ end;
 
 function TfrCadastroSala.Consultar: TForm;
 begin
-    // faze depois.
+    Result := TfrConsultaSala.Create(Edit_id_sala);
+    Result.ShowModal;
 end;
 
 procedure TfrCadastroSala.Salvar;

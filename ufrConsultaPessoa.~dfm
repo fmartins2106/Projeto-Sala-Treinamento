@@ -35,4 +35,7 @@ inherited frConsultaPessoa: TfrConsultaPessoa
         Visible = True
       end>
   end
+  inherited DS_Consulta_Padrao: TDataSource
+    DataSet = dm_Treinamento_dataModulo.CDS_PESSOA
+  end
 end

@@ -33,7 +33,7 @@ var
 implementation
 
 uses ufrCadastroPessoa, uDataModulo, ufrCadastroSala, ufrCadastroEmpresa,
-  ufrCadastroTreinamento;
+  ufrCadastroTreinamento, ufrConsultaPessoa;
 
 {$R *.dfm}
 

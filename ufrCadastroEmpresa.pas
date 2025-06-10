@@ -43,7 +43,7 @@ var
 
 implementation
 
-uses uDataModulo;
+uses uDataModulo, ufrConsultaEmpresa;
 
 {$R *.dfm}
 
@@ -65,7 +65,8 @@ end;
 
 function TfrCadastroEmpresa.Consultar: TForm;
 begin
-   // FAZER POSTERIORMENTE.
+   Result := TfrConsultaEmpresa.Create(Ed_ID_Empresa);
+   Result.ShowModal;
 end;
 
 procedure TfrCadastroEmpresa.Salvar;

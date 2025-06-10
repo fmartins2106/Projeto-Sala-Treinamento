@@ -2,13 +2,14 @@ inherited frConsultaPessoa: TfrConsultaPessoa
   Left = 344
   Top = 85
   Caption = 'frConsultaPessoa'
+  OldCreateOrder = True
   PixelsPerInch = 96
   TextHeight = 13
   inherited DBgrid_Consulta_Padrao: TDBGrid
     Columns = <
       item
         Expanded = False
-        FieldName = 'BDIDNOME'
+        FieldName = 'BDIDPESSOA'
         Title.Caption = 'ID Nome'
         Width = 67
         Visible = True
