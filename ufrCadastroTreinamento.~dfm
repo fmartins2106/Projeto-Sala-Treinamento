@@ -1,6 +1,6 @@
 inherited frCadastroTreinamento: TfrCadastroTreinamento
-  Left = 294
-  Top = 111
+  Left = 319
+  Top = 50
   Width = 919
   Height = 239
   Caption = 'frCadastroTreinamento'

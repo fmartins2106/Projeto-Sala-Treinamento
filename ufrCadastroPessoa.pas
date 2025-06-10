@@ -51,6 +51,7 @@ end;
 function TfrCadastroPessoa.Consultar: TForm;
 begin
   Result := TfrConsultaPessoa.Create(Edit_ID_Pessoa);
+  Result.ShowModal;
 end;
 
 procedure TfrCadastroPessoa.Salvar;

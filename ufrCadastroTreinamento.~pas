@@ -79,12 +79,12 @@ begin
   inherited;
    Tabela.FieldByName('BDIDTREINAMENTO').AsInteger := StrToIntDef(Ed_ID_Treinamento.Text,0);
    Tabela.FieldByName('BDNOMETREINAMENTO').AsString :=Ed_Nome_Treinamento.Text;
-   Tabela.FieldByName('BDETAPA').AsInteger := Integer(CB_Etapa_Treinamento.Items.Objects[CB_Etapa_Treinamento.ItemIndex]);
+   Tabela.FieldByName('BDIDPESSOA').AsInteger := StrToIntDef(Ed_ID_Pessoa.Text,0);
    Tabela.FieldByName('BDSALACAFE').AsString :=Ed_Nome_Sala_Cafe.Text;
-   Tabela.FieldByName('BDIDPESSOA').AsInteger := StrToIntDef(Ed_ID_Sala.Text,0);
+   Tabela.FieldByName('BDIDSALA').AsInteger := StrToIntDef(Ed_ID_Sala.Text,0);
    Tabela.FieldByName('BDDATAINICIO').AsDateTime := DTP_Inicio_Treinamento.datetime;
    Tabela.FieldByName('BDDATAFIM').AsDateTime := DTP_Final_Treinamento.datetime;
-   Tabela.FieldByName('BDIDSALA').AsInteger := StrToIntDef(Ed_ID_Sala.Text,0);
+   Tabela.FieldByName('BDETAPA').AsInteger := Integer(CB_Etapa_Treinamento.Items.Objects[CB_Etapa_Treinamento.ItemIndex]);
 end;
 
 function TfrCadastroTreinamento.setEdit_id: TEdit;
@@ -101,5 +101,5 @@ function TfrCadastroTreinamento.setTabela: TClientDataSet;
 begin
   Result := dm_Treinamento_dataModulo.CDS_TREINAMENTO;
 end;
-
+                                                     
 end.
